@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Day and Time display
+        </title>
+        <script>
+            var datetoday= new Date();
+            var daytoday= datetoday.getDay();
+            var days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+            var hourtoday= datetoday.getHours();
+            var minutetoday= datetoday.getMinutes();
+            var secondtoday= datetoday.getSeconds();
+            var intervaltoday= (hourtoday>=12)? "PM":"AM";
+            if(hourtoday===0 && intervaltoday==='PM'){
+                if(minutetoday===0 && secondtoday===0){
+                    hourtoday=12;
+                    intervaltoday='Noon'
+                }
+                else{
+                    hourtoday=12;
+                }
+            }
+            else if(hourtoday===0 && intervaltoday==='AM'){
+                if(minutetoday===0 && secondtoday===0){
+                    hourtoday=12;
+                    intervaltoday='Midnight';
+                }
+                else{
+                    hourtoday=12;
+                }
+            }
+            document.write("Today is : "+ days[daytoday]);
+            document.write("<br>")
+            document.writeln("Current Time : "+hourtoday + intervaltoday + " : " + minutetoday + " : " + secondtoday);
+        </script>
+    </head>
+</html>
